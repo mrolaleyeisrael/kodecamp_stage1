@@ -30,6 +30,16 @@ function fibonacciGenerator() {
     return result;
   }
 
+// CACHING MECHANISM
+
+//   1. Implement a cache within the closure to store previously calculated Fibonacci numbers.
+// 2. The generator function first checks the cache for the requested number.
+
+// 3. If the number is not cached, it calculates it using the traditional recursive approach and stores it in the cache for future use.
+
+// 4. This optimization improves performance for repeated requests of the same Fibonacci number.
+
+
   function* generateFibonacci(start, end) {
     for (let i = start; i <= end; i++) {
       yield getFibonacci(i);
