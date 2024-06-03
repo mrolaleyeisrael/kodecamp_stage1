@@ -1,32 +1,24 @@
-// const fibonacciGen = () => {
 
-//   const cache = new Map()
-//   return function* generateFibonacci(...args) {
-//     console.log(args)
-
-//   }
-
-
-// }
-// fibonacciGen(2)
 
 function fibonacciGenerator() {
   const cache = {};
 
   function getFibonacci(n) {
     if (cache[n] !== undefined) {
-      console.log("returned from cache")
+      console.log("fibonacci for ", + n + " returned from cache")
       return cache[n];
     }
 
     if (n === 0) {
       return 0;
     }
+
     if (n === 1) {
       return 1;
     }
 
     const result = getFibonacci(n - 1) + getFibonacci(n - 2);
+    
     console.log(result)
     cache[n] = result;
 
