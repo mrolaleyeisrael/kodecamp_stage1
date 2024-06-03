@@ -1,3 +1,15 @@
+// const fibonacciGen = () => {
+
+//   const cache = new Map()
+//   return function* generateFibonacci(...args) {
+//     console.log(args)
+
+//   }
+
+
+// }
+// fibonacciGen(2)
+
 function fibonacciGenerator() {
   const cache = {};
 
@@ -7,15 +19,15 @@ function fibonacciGenerator() {
     }
 
     if (n === 0) {
-      yield 0;
+      return 0;
     }
     if (n === 1) {
-      yield 1;
+      return 1;
     }
 
     const result = getFibonacci(n - 1) + getFibonacci(n - 2);
     cache[n] = result;
-    yield result;
+    return result;
   }
 
   function* generateFibonacci(start, end) {
@@ -28,12 +40,16 @@ function fibonacciGenerator() {
 }
 
 const start_index = 5;
-const end_index = 15;
+const end_index = 10;
 
 const fibGenFunc = fibonacciGenerator();
 
 const fibSequence = fibGenFunc(start_index, end_index);
+let outcome = []
 
 for (const num of fibSequence) {
-  console.log(num);
+  outcome.push(num);
 }
+
+console.log(outcome)
+
