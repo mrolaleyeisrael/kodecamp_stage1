@@ -15,6 +15,7 @@ function fibonacciGenerator() {
 
   function getFibonacci(n) {
     if (cache[n] !== undefined) {
+      console.log("returned from cache")
       return cache[n];
     }
 
@@ -26,19 +27,11 @@ function fibonacciGenerator() {
     }
 
     const result = getFibonacci(n - 1) + getFibonacci(n - 2);
+    console.log(result)
     cache[n] = result;
+
     return result;
   }
-
-// CACHING MECHANISM
-
-//   1. Implement a cache within the closure to store previously calculated Fibonacci numbers.
-// 2. The generator function first checks the cache for the requested number.
-
-// 3. If the number is not cached, it calculates it using the traditional recursive approach and stores it in the cache for future use.
-
-// 4. This optimization improves performance for repeated requests of the same Fibonacci number.
-
 
   function* generateFibonacci(start, end) {
     for (let i = start; i <= end; i++) {
@@ -50,7 +43,7 @@ function fibonacciGenerator() {
 }
 
 const start_index = 5;
-const end_index = 10;
+const end_index = 6;
 
 const fibGenFunc = fibonacciGenerator();
 
@@ -60,6 +53,4 @@ let outcome = []
 for (const num of fibSequence) {
   outcome.push(num);
 }
-
 console.log(outcome)
-
